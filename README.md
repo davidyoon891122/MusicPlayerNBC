@@ -181,3 +181,130 @@
     + var isValid: Bool: 타이머가 현재 유효한지 아닌지 여부
     + var fireDate: Date: 다음에 타이머가 실행될 시각
     + var timeInterval: TimeInterval: 타이머의 실행 시간 간격(초 단위)
+
++ Cocoa Touch란?
+  + 코코아 터치 계층(Cocoa Touch Layer)
+    + 코코아라는 단어는 Objective-C 런타임을 기반으로 하고, NSObject를 상속받는 모든 클래스 또는 객체를 가르킬 때 사용
+    + 코코아터치 또는 코코아는 iOS 또는 macOS의 전반적인 기능을 활용해 애플리케이션을제작할 떄 사용하는 프레임워크 계층
+    + 코코아 터치는 핵심 프레임워크인 UIKit 과 Foundation을 포함
+    + iOS Application <-> Cocoa Touch[ UIKit, Foundation, CoreData, MapKit, CoreAnimation, etc] <-> Hardware
++ UIKit 이란?
+  + UIKit은 iOS 애플리케이션 개발시 사용자에게 보여질 화면을 구성하고 사용자 액션에 대응에 관련된 다양한 요소를 포함
+  + 사용자 인터페이스를 구현하고 이벤트를 관리하는 프레임워크
+  + 제스처 처리, 애니메이션, 그림 그리기, 이미지 처리, 텍스트 처리 등 사용자 이벤트 처리를 위한 클래스를 포함
+  + 테이블뷰, 슬라이더, 버튼, 텍스트 필드, 얼럿 창 등 애플리케이션 화면을 구성하는 요소 포함
+  + UIResponder에서 파생된 클래스나 사용자 인터페이스에 관련된 클래스는 메인 스레드(혹은 메인 디스패치 큐)에서만 사용 해야 한다.
+  + UIKit은 iOS와 tvOS 플랫폼에서 사용
+  + 기능별 요소
+    + 사용자 인터페이스
+      + View and Control: 화면에 콘텐츠 표시
+      + View Controller: 사용자 인터페이스 관리
+      + Animation and Haptics: 애니메이션과 햅틱을 통한 피드백 제공
+      + Window and Screen: 뷰 계층을 위한 윈도우 제공
+    + 사용자 액션
+      + Touch, Press, Gesture: 제스처 인식기를 통한 이벤트 처리 로직
+      + Drag and Drop: 화면 위에서 드래그 앤 드롭 기능
+      + Peek and Pop: 3D 터치에 대응한 미리 보기 기능
+      + Keyboard and Menu: 키보드 입력을 처리 및 사용자 정의 메뉴 표시
+
++ Foundation이란?
+
+  + Foundation은 iOS 애플리케이션의 운영체제 서비스와 기본 기능을 포함하는 프레임워크
+
+  + 원시 데이터 타임(String, Int, Double), 컬렉션 타입(Array, Dictionary, Set) 및 운영체제 서비스를 사용해 애플리케이션의 기본적인 기능을 관리하는 프레임 워크
+
+  + 데이터 타입, 날짜 및 시간 계산, 필터 및 정렬, 네트워킹 등의 기본 기능을 제공
+
+  + iOS뿐만 아니라 macOS, watchOS, tvOS등 모든 애플 SDK에서 사용
+
+  + Foundation에서 제공하는 데이터 타입 및 컬렉션 타입의 대부분은 Objective-C 언어의 기능에서 지원하지 않는 것이기 때문에 언어기능을 보완하기 위한 구현이며, Swift에서는 이에 해당하는 데이터 타입과 기능 대부분을 Swift 표준 라이브러리에서 제공함
+
+  + Foundation 기능별 요소
+
+    + 기본
+      + Number, Data, String: 원시 데이터 타입 사용
+      + Collection: Array, Dictionary, Set 등과 같은 컬렉션 타입 사용
+      + Date and Time: 날짜와 시간을 계산하거나 비교하는 작업
+      + Unit and Measurement: 물리적 차원을 숫자로 표현 및 관련 단위 간 변환 기능
+      + Data formatting: 숫자, 날짜, 측정값 등을 문자열로 변환 또는 반대 작업
+      + Filter and Sorting: 컬렉션의 요소를 검사하거나 정렬하는 작업
+    + 애플리케이션 지원
+      + Resources: 애플리케이션의 에셋과 번들 데이터에 접근 지원
+      + Notification: 정보를 퍼뜨리거나 받아들이는 기능 지원
+      + App Extenttion: 확장 애플리케이션과의 상호작용 지원
+      + Error and Exceptions: API와의 상호작용에서 발생할 수 있는 문제 상황에 대처할 수 있는 기능 지원
+
+    + 파일 및 데이터 관리
+      + File System: 파일 또는 폴더를 생성하고 읽고 쓰는 기능 관리
+      + Archives and Serialization: 속성 목록, JSON, 바이너리 파일들을 객체로 변환 또는 반대 작업 관리
+      + iCloud: 사용자의 iCloud 계정을 이용해 데이터를 동기화 하는 작업 관리
+    + 네트워킹
+      + URL Loading System: 표준 인터넷 프로토콜을 통해 URL과 상호작용하고 서버와 통신하는 작업
+      + Bonjour: 로컬 네트워크를 위한 작업
+
+    + UIKit에서도 import Foundation 사용함
+
++ 오토레이아웃이란?
+  + 디바이스 사이즈에 구애받지 않고 시각적으로 동일한 화면을 구현하는데 가장 편리하고 권장되는 방법
+  + 뷰의 제약 사항을 바탕으로 뷰 체계 내의 모든 뷰의 크기와 위치를 동적으로 계산
+  + 외부 변경(External Changes)
+    + 외부 변경은 슈퍼뷰의 크기나 모양이 변경될 때 발생, 각가의 변화와 함께 사용 가능한 공간을 가장 잘 사용할 수 있도록 뷰 체계의 레이아웃을 업데이트해줘야 함
+    + 외부 변경이 발생하는 경우
+      + 사용자가 아이패드의 분할뷰(Split VIew)를 사용하거나 사용하지 않는 경우(IOS)
+      + 장치를 회전하는 경우(iOS)
+      + 활성화콜(active call)과 오디오 녹음 바가 보여지거나 사라지는 경우(iOS)
+      + 다른 크기의 클래스를 지원하기 원하는 경우
+      + 다른 크기의 스크린을 지원하기 원하는 경우
+  + 내부 변경(Internal Changes)
+    + 내부 변경은 사용자 인터페이스의 뷰의 크기 또는 설정이 변경되었을 때 발생
+    + 내부 변경이 발생하는 경우
+      + 애플리케이션의 변경에 의해 콘텐츠가 보여지는 경우
+      + 애플리케이션이 국제화를 지원하는 경우
+      + 애플리케이션이 동적 타입을 지원하는 경우
+  + 오토레이아웃의 속성
+    + Width: 정렬 사각형의 너비
+    + Height: 정렬 사격형의 높이
+    + Top: 정렬 사각형의 상단
+    + Bottom: 정렬 사각형의 하단
+    + Baseline: 텍스트의 하단
+    + Horizontal: 수평
+    + Vertical: 수직
+    + Leading: 리딩, 텍스트를 읽을 때 시작 방향
+    + Trailing: 트레일링, 테스트를 읽을 때 끝 방향
+    + CenterX: 수평 중심
+    + CenterY: 수직 중심
+  + 안전 영역(Safe Area)
+    + 안전 영역은 콘텐츠가 상태바, 네비게이션바, 툴바, 탭바를 가리는 것을 방지하는 영역
+    + 표준 시스템이 제공하는 뷰들은 자동으로 안전 영역 레이아웃 가이드를 준수하게 되어 있다
+    + 기존의 상/하단 레이아웃 가이드(Top/Bottom Layout Guide)를 대체하며, 하위 버전에도 호환하여 작동
+    + UIView 클래스의 var safeAreaLayoutGuide: UILayoutGuide로 접근
+  + 제약(Constraint)
+    + 제약은 뷰 스스로 또는 뷰 사이의 관계를 속성을 통하여 정의
+    + 제약은 방정식으로 나타낼 수 있다
+    +  A View < ---- 8 ----> B View
+      + B.Leading = 1.0 x A.Trailing + 8.0
+      + B: item1
+      + Leading: Attribute1
+      + 1.0: Multiplier
+      + A: item2
+      + Trailing: Attribute2
+      + 8.0: Constant
+    + 고유 컨텐츠 크기(Intrinsic Content Size)
+      + 뷰의 고유 컨텐츠 크기는 뷰가 갖는 원래의 크기로 생각할 수 있다
+      + 예를 들어 레이블의 고유 컨텐츠 크기는 레이블의 텍스트의 크기이고, 이미지의 고유 컨텐츠 크기는 이미지 자체 크기이다
+    + 제약 우선도(Constraint Priorities)
+      + 오토레이아웃은 뷰의 고유 컨텐츠 크기를 각 크기에 대한 한 쌍의 제약을 사용하여 나타냄
+      + 우선도가 높을수록 다른 제약보다 우선적으로 레이아웃에 적용
+      + 같은 속성의 다른 제약과 경합하는 경우, 우선도가 낮은 제약은 무시
+        + 컨텐츠 허깅 우선도(Content hugging priority): 컨텐츠 고유 사이즈보다 뷰가 커지지 않도록 제한, 다른 제약사항보다 우선도가 높으면 뷰가 컨텐츠 사이즈보다 커지지 않는다
+        + 컨텐츠 축소 방지 우선도(Content compression resistance priority): 컨텐츠 고유 사이즈보다 뷰가 작아지지 않도록 제한, 다른 제약사항보다 우선도가 높으면 뷰가 컨텐츠 사이즈보다 작아지지 않는다
+    + 레이아웃 마진
+      + 뷰에 컽네츠 내용을 레이아웃할 때 사용하는 기본 간격(default spacing)
+        + 레이아웃 마진 가이드(Layout Margin Guide): 레이아웃 마진에 따라 형성되는 사각의 프레임 영역
+    + 앵커(Anchor)
+      + 오토레이아웃을 Programmatically식으로 구현하여 제약(Constraint)을 만들기 위해 사용
+      + translatesAutoresizingMaskIntoConstrains
+        + 오토레이아웃이 도입되기 전 뷰를 유연하게 표현할 수 있도록 오토리사이징 마스크를 사용하였음
+        +  오토레이아웃을 사용하게 되면 기존의 오토리사이징 마스크가 가지고 있던 제약조건이 자동으로 추가되기 때문에 충돌하게 될 가능성 있음
+        + 해당 값을 false로 설정한 뒤 오토레이아웃을 적용해 주어야 함
+        + 인터페이스 빌더에서 오토레이아웃을 사용할 경우 해당 값이 자동으로 false로 설정
