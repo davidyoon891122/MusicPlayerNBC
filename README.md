@@ -245,6 +245,7 @@
     + UIKit에서도 import Foundation 사용함
 
 + 오토레이아웃이란?
+
   + 디바이스 사이즈에 구애받지 않고 시각적으로 동일한 화면을 구현하는데 가장 편리하고 권장되는 방법
   + 뷰의 제약 사항을 바탕으로 뷰 체계 내의 모든 뷰의 크기와 위치를 동적으로 계산
   + 외부 변경(External Changes)
@@ -308,3 +309,32 @@
         +  오토레이아웃을 사용하게 되면 기존의 오토리사이징 마스크가 가지고 있던 제약조건이 자동으로 추가되기 때문에 충돌하게 될 가능성 있음
         + 해당 값을 false로 설정한 뒤 오토레이아웃을 적용해 주어야 함
         + 인터페이스 빌더에서 오토레이아웃을 사용할 경우 해당 값이 자동으로 false로 설정
+
+  + NSLayoutConstraint
+    + Autolayout 방정식
+      + view1.attr1 = view2.attr2 * multiplier + constant
+      + Item.attribute = toItem.attribute * multiplier + constant
+        + item: 제약조건을 받는 뷰(왼쪽)
+        + relatedBy: 제약조건을 받는 뷰간의 관계
+        + Attribute: 뷰(왼족)의 제약조건의 속성
+        + toItem: 뷰(왼쪽)의 제약조건을 받을뷰(오른쪽)
+        + Attribute: 뷰(오른쪽)의 제약 조건의 속성
+        + Multiplier: 뷰(왼쪽)의 속성값을 얻기 위해 뷰(오른쪽)의 속성값을 곱함
+        + Constant: 상수 값
+      + NSLayoutConstraint(item: button, attribute: .right, relatedBy: .equal, toItem: textField, attribute: .left, multiplier: 1.0, constant: 8.0)
+  + Visual Format Language
+    + 사용 가능한 기호 및 문자열
+      + | : superView
+      + \- : 표준 간격 기본은 8
+      + == : 같은 너비
+      + \-10\- : 사이의 간격이 10 포인트
+      + <=50 : 50보다 작거나 같음
+      + \>=50 : 50보다 크거나 같음
+      + @750 우선도 지정
+      + H : 수평 방향
+      + V : 수직 방향
+    + H:[button]\-8\-[textField] 또는 H:[button]-[textField] : 버튼 과 텍스트필드 사이 8의 간격
+    + H:[button(>=50)] 50보다 크거나 같은 버튼
+    + H:[button(100@20)]: 100크기에 무선도 20
+    + H:[button1(==button2)]: button1과 button2의 너비 값이 같도록 제약 생성(Equal Width)
+    + H:[flexibleButton(>=70, \<=100)] : 70보다 크거나 같고 100 포인트 보다 작은 제약 생성

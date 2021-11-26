@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addViewsWithCode()
+//        self.addViewsWithCode()
 
         self.initializePlayer()
                 
@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         
         self.playPauseButton = button
     }
+    
     
     func addTimeLabel() {
         let timeLabel: UILabel = UILabel()
